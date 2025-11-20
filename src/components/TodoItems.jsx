@@ -3,7 +3,7 @@ function TodoItems({ id, isDone, content }) {
     <div>
       <button type="checkbox"></button>
       <div>{content}</div>
-      <button onClick={onClick}>삭제</button>
+      <button>삭제</button>
     </div>
   );
 }
