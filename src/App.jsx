@@ -32,7 +32,7 @@ function App() {
   function handleDelete(id) {
     setTodos(
       [...todos].filter((v) => {
-        v.id !== id;
+        return v.id !== id;
       })
     );
   }
