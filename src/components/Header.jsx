@@ -1,10 +1,13 @@
 import Clock from "./Clock";
+import "./Header.css";
 function Header() {
   return (
-    <h1>
-      Todo Garden ☘️
-      <Clock></Clock>
-    </h1>
+    <div className="headerContainer">
+      <div className="header">
+        <h1>☘️ Todo Garden</h1>
+        <Clock></Clock>
+      </div>
+    </div>
   );
 }
 

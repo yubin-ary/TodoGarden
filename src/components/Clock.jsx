@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./Clock.css";
 
 function Clock() {
   let [time, setTime] = useState();
@@ -16,6 +17,6 @@ function Clock() {
     return () => clearInterval(id);
   }, []);
 
-  return <p>{time}</p>;
+  return <p className="clock">{time}</p>;
 }
 export default Clock;

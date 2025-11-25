@@ -23,13 +23,24 @@ function App() {
       todos.map((v) => (v.id === targetId ? { ...v, isDone: !v.isDone } : v))
     );
   };
+  const handleDelete = (targetId) => {
+    setTodos(todos.filter((v) => v.id != targetId));
+  };
   return (
-    <>
+    <div className="App">
       <Header></Header>
-      <PlantTodo handleTodo={handleTodo}></PlantTodo>
-      <List todos={todos} handleDone={handleDone}></List>
-      <Garden></Garden>
-    </>
+      <div className="todoPart">
+        <PlantTodo handleTodo={handleTodo}></PlantTodo>
+        <List
+          todos={todos}
+          handleDone={handleDone}
+          handleDelete={handleDelete}
+        ></List>
+      </div>
+      <div className="gardenPart">
+        <Garden></Garden>
+      </div>
+    </div>
   );
 }
 

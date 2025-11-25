@@ -1,5 +1,6 @@
 import TodoItems from "./TodoItems";
 import { useState, useRef } from "react";
+import "./plantTodo.css";
 
 function PlantTodo({ handleTodo }) {
   const [content, setContent] = useState("");
@@ -26,7 +27,7 @@ function PlantTodo({ handleTodo }) {
     }
   };
   return (
-    <div>
+    <div className="editor">
       <input
         ref={inputRef}
         onChange={onChange}
@@ -34,7 +35,7 @@ function PlantTodo({ handleTodo }) {
         value={content}
         placeholder="Plant your todos."
       ></input>
-      <button onClick={onSubmit}>심기</button>
+      <button onClick={onSubmit}>add</button>
     </div>
   );
 }

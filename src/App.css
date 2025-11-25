@@ -1,0 +1,24 @@
+.App {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 auto;
+  font-family: "Nanum Gothic Coding";
+  box-sizing: content-box;
+}
+.todoPart {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  min-width: 400px;
+  margin: 0 auto;
+}
+.gardenPart {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  min-width: 500px;
+  margin: 0 auto;
+  border: 2px solid black;
+}

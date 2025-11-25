@@ -1,0 +1,14 @@
+.headerContainer {
+  height: 50px;
+  padding: 0 10px 0 15px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  color: rgb(150, 150, 150);
+}
+h1 {
+  font-size: large;
+  font-weight: 600;
+}

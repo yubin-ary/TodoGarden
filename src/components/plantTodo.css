@@ -1,0 +1,23 @@
+.editor {
+  display: flex;
+  gap: 10px;
+}
+.editor input {
+  flex: 1;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 5px;
+  font-size: 14px;
+}
+.editor input::placeholder {
+  color: rgb(200, 200, 200);
+  font-size: 14px;
+}
+.editor button {
+  width: 80px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background-color: #a9fa4d;
+  cursor: pointer;
+  font-size: 14px;
+}

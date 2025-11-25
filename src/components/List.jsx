@@ -1,13 +1,34 @@
 import TodoItems from "./TodoItems";
+import { useState } from "react";
+import "./List.css";
+function List({ todos, handleDone, handleDelete }) {
+  const [searchWord, setSearchWord] = useState("");
+  const onChange = (e) => {
+    setSearchWord(e.target.value);
+  };
+  const getFilteredToDos = (word) => {
+    return todos.filter((v) =>
+      v.content.toLowerCase().includes(word.toLowerCase())
+    );
+  };
+  const filteredTodo = getFilteredToDos(searchWord);
 
-function List({ todos, handleDone }) {
   return (
-    <div>
-      {todos.map((v) => {
-        return (
-          <TodoItems key={v.id} {...v} handleDone={handleDone}></TodoItems>
-        );
-      })}
+    <div className="list">
+      <h3>Todo List 🔖</h3>
+      <input onChange={onChange} placeholder="Search..."></input>
+      <div className="todoWrapper">
+        {filteredTodo.map((v) => {
+          return (
+            <TodoItems
+              key={v.id}
+              {...v}
+              handleDone={handleDone}
+              handleDelete={handleDelete}
+            ></TodoItems>
+          );
+        })}
+      </div>
     </div>
   );
 }
