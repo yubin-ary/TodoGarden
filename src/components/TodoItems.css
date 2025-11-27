@@ -31,3 +31,12 @@
   border: none;
   border-radius: 5px;
 }
+.todoItems > .pButton {
+  width: 40px;
+  font-size: 10px;
+  border: 1.5px dashed #a9fa4d;
+  justify-content: center;
+  margin: 0;
+  background-color: #fff;
+  color: grey;
+}

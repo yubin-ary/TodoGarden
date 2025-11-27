@@ -1,7 +1,19 @@
 import "./todoItems.css";
-function TodoItems({ id, isDone, content, date, handleDone, handleDelete }) {
+import PlantButton from "./PlantButton";
+import { useState } from "react";
+function TodoItems({
+  id,
+  isDone,
+  content,
+  date,
+  handleDone,
+  handleDelete,
+  handleSendToGarden,
+}) {
+  const [done, setDone] = useState(false);
   const onChange = () => {
     handleDone(id);
+    setDone(!done);
   };
   const onClick = () => {
     handleDelete(id);
@@ -9,7 +21,13 @@ function TodoItems({ id, isDone, content, date, handleDone, handleDelete }) {
   return (
     <div className="todoItems">
       <input onChange={onChange} checked={isDone} type="checkbox" />
+
       <div className="content">{content}</div>
+      <PlantButton
+        id={id}
+        done={done}
+        handleSendToGarden={handleSendToGarden}
+      ></PlantButton>
       <div className="date">{new Date(date).toLocaleDateString()}</div>
       <button onClick={onClick}>𝘅</button>
     </div>

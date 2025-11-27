@@ -1,7 +1,7 @@
 import TodoItems from "./TodoItems";
 import { useState } from "react";
 import "./List.css";
-function List({ todos, handleDone, handleDelete }) {
+function List({ todos, handleDone, handleDelete, handleSendToGarden }) {
   const [searchWord, setSearchWord] = useState("");
   const onChange = (e) => {
     setSearchWord(e.target.value);
@@ -25,6 +25,7 @@ function List({ todos, handleDone, handleDelete }) {
               {...v}
               handleDone={handleDone}
               handleDelete={handleDelete}
+              handleSendToGarden={handleSendToGarden}
             ></TodoItems>
           );
         })}

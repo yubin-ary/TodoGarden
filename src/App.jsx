@@ -7,7 +7,8 @@ import "./App.css";
 
 function App() {
   const [todos, setTodos] = useState([]);
-  const idRef = useRef(1);
+  const [gardenTodos, setGardenTodos] = useState([]);
+  const idRef = useRef("1");
   function handleTodo(content) {
     let value = {
       id: idRef.current++,
@@ -26,6 +27,14 @@ function App() {
   const handleDelete = (targetId) => {
     setTodos(todos.filter((v) => v.id != targetId));
   };
+  const handleSendToGarden = (targetId) => {
+    setGardenTodos([...gardenTodos, todos.filter((v) => v.id === targetId)]);
+    /*setTodos(
+      todos.filter((v) => {
+        v.id != targetId;
+      })
+    );*/
+  };
   return (
     <div className="App">
       <Header></Header>
@@ -35,10 +44,11 @@ function App() {
           todos={todos}
           handleDone={handleDone}
           handleDelete={handleDelete}
+          handleSendToGarden={handleSendToGarden}
         ></List>
       </div>
       <div className="gardenPart">
-        <Garden></Garden>
+        <Garden gardenTodos={gardenTodos}></Garden>
       </div>
     </div>
   );
