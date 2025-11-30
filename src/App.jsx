@@ -9,12 +9,13 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [gardenTodos, setGardenTodos] = useState([]);
   const idRef = useRef("1");
-  function handleTodo(content) {
+  function handleTodo(content, plantType) {
     let value = {
       id: idRef.current++,
       isDone: false,
       content: `${content}`,
       date: new Date().getTime(),
+      plantType: `${plantType}`,
     };
 
     setTodos([value, ...todos]);
@@ -28,13 +29,16 @@ function App() {
     setTodos(todos.filter((v) => v.id != targetId));
   };
   const handleSendToGarden = (targetId) => {
-    setGardenTodos([...gardenTodos, todos.filter((v) => v.id === targetId)]);
+    setGardenTodos(
+      [...gardenTodos].concat(todos.filter((v) => v.id === targetId))
+    );
     /*setTodos(
       todos.filter((v) => {
         v.id != targetId;
       })
     );*/
   };
+
   return (
     <div className="App">
       <Header></Header>

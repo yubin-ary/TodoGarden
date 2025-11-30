@@ -1,0 +1,54 @@
+.garden {
+  display: flex;
+  margin: 0 auto;
+  min-width: 400px;
+  min-height: 300px;
+  background-image: url("https://i.pinimg.com/1200x/1d/b6/48/1db64854fcdf1e9eec18e4915181e7d4.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  border: 2px solid black;
+  justify-content: center;
+}
+
+.plants {
+  border: 1px solid black;
+  height: 80px;
+  width: 350px;
+  display: flex;
+  position: absolute;
+  top: 130px;
+  flex-wrap: wrap;
+}
+p {
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+}
+.name {
+  box-sizing: content-box;
+  width: 30px;
+  height: 40px;
+  border: 1px solid red;
+  text-align: center;
+  opacity: 100;
+  z-index: 2;
+}
+.name:hover {
+  opacity: 100;
+  text-align: center;
+}
+.gardenItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 40px;
+  border: 1px solid black;
+}
+.plantPic {
+  width: 30px;
+  height: 40px;
+}

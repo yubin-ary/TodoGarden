@@ -1,5 +1,4 @@
 const PlantButton = ({ id, done, handleSendToGarden }) => {
-  console.log(id);
   const onClick = () => {
     handleSendToGarden(id);
   };

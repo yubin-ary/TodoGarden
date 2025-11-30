@@ -6,9 +6,11 @@ function TodoItems({
   isDone,
   content,
   date,
+  plantType,
   handleDone,
   handleDelete,
   handleSendToGarden,
+  randomPic,
 }) {
   const [done, setDone] = useState(false);
   const onChange = () => {
@@ -27,6 +29,7 @@ function TodoItems({
         id={id}
         done={done}
         handleSendToGarden={handleSendToGarden}
+        randomPic={randomPic}
       ></PlantButton>
       <div className="date">{new Date(date).toLocaleDateString()}</div>
       <button onClick={onClick}>𝘅</button>
