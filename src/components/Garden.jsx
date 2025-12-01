@@ -8,7 +8,9 @@ function Garden({ gardenTodos }) {
           return (
             <div className="gardenItem" key={v.id}>
               <img key={v.id} className="plantPic" src={v.plantType}></img>
-              <div className="name">{v.content}</div>
+              <div className="name">
+                <div className="text">{v.content}</div>
+              </div>
             </div>
           );
         })}
@@ -16,4 +18,5 @@ function Garden({ gardenTodos }) {
     </div>
   );
 }
+
 export default Garden;

@@ -4,6 +4,7 @@ import "./plantTodo.css";
 
 function PlantTodo({ handleTodo }) {
   const [content, setContent] = useState("");
+  const [isComposing, setIsComposing] = useState(false);
   const inputRef = useRef();
   const choose = () => {
     let num = Math.ceil(Math.random() * 10);
@@ -24,15 +25,16 @@ function PlantTodo({ handleTodo }) {
     setContent(e.target.value);
   }
   const onKeyDown = (e) => {
-    if (e.key == "Enter") {
+    if (e.key == "Enter" && !isComposing) {
       if (content === "") {
         inputRef.current.focus();
         return;
-      }
-      const plantType = choose();
-      handleTodo(content, plantType);
+      } else {
+        const plantType = choose();
+        handleTodo(content, plantType);
 
-      setContent("");
+        setContent("");
+      }
     }
   };
   return (
@@ -43,6 +45,8 @@ function PlantTodo({ handleTodo }) {
         onKeyDown={onKeyDown}
         value={content}
         placeholder="Plant your todos."
+        onCompositionStart={() => setIsComposing(true)}
+        onCompositionEnd={() => setIsComposing(false)}
       ></input>
       <button onClick={onSubmit}>add</button>
     </div>

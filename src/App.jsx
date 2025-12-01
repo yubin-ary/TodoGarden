@@ -51,11 +51,10 @@ function App() {
     setGardenTodos(
       [...gardenTodos].concat(todos.filter((v) => v.id === targetId))
     );
-    /*setTodos(
-      todos.filter((v) => {
-        v.id != targetId;
-      })
-    );*/
+    dispatch({
+      type: "DELETE",
+      targetId: targetId,
+    });
   };
 
   return (

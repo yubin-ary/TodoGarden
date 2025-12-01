@@ -1,6 +1,4 @@
 .garden {
-  display: flex;
-  margin: 0 auto;
   min-width: 400px;
   min-height: 300px;
   background-image: url("https://i.pinimg.com/1200x/1d/b6/48/1db64854fcdf1e9eec18e4915181e7d4.jpg");
@@ -8,45 +6,53 @@
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
-  border: 2px solid black;
-  justify-content: center;
+
+  justify-items: center;
 }
 
 .plants {
-  border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  align-items: center;
+  justify-content: center;
   height: 80px;
   width: 350px;
-  display: flex;
+
   position: absolute;
   top: 130px;
+
   flex-wrap: wrap;
 }
-p {
-  line-height: 0;
-  margin: 0;
-  padding: 0;
-}
+
 .name {
+  width: 40px;
+  height: 10px;
+
   box-sizing: content-box;
-  width: 30px;
-  height: 40px;
-  border: 1px solid red;
+
   text-align: center;
-  opacity: 100;
-  z-index: 2;
-}
-.name:hover {
-  opacity: 100;
+  opacity: 0;
+  text-wrap: nowrap;
+  overflow: visible;
   text-align: center;
+  position: relative;
 }
+.name .text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .gardenItem {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 40px;
-  border: 1px solid black;
+  flex-direction: column;
+}
+.gardenItem:hover .name {
+  opacity: 100;
 }
 .plantPic {
   width: 30px;
