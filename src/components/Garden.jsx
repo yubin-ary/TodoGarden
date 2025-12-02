@@ -11,7 +11,7 @@ function Garden({ gardenTodos }) {
               key={v.id}
               style={{
                 gridRow: Math.floor(v.location / 8) + 1,
-                gridColumn: v.location % 8,
+                gridColumn: (v.location % 8) + 1,
               }}
             >
               <img key={v.id} className="plantPic" src={v.plantType}></img>
