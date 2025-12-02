@@ -5,24 +5,38 @@ import "./plantTodo.css";
 function PlantTodo({ handleTodo }) {
   const [content, setContent] = useState("");
   const [isComposing, setIsComposing] = useState(false);
+  const [emptyCell, setEmptyCell] = useState(Array(16).fill(null));
   const inputRef = useRef();
+
   const choose = () => {
     let num = Math.ceil(Math.random() * 10);
     return `src/asset/plants/plant${num}.png`;
   };
+  const setLocation = () => {
+    const copyEmptyCell = emptyCell
+      .map((v, i) => (v === null ? i : null))
+      .filter((v) => v !== null);
+    console.log(copyEmptyCell);
+    return parseInt(
+      copyEmptyCell[Math.floor(Math.random() * copyEmptyCell.length)]
+    );
+  };
 
+  function onChange(e) {
+    setContent(e.target.value);
+  }
   function onSubmit() {
     if (content === "") {
       inputRef.current.focus();
       return;
     }
     const plantType = choose();
-    handleTodo(content, plantType);
+    const location = setLocation();
+
+    handleTodo(content, plantType, location);
+    setEmptyCell(emptyCell.map((v, i) => (i === location ? "filled" : null)));
 
     setContent("");
-  }
-  function onChange(e) {
-    setContent(e.target.value);
   }
   const onKeyDown = (e) => {
     if (e.key == "Enter" && !isComposing) {
@@ -31,7 +45,12 @@ function PlantTodo({ handleTodo }) {
         return;
       } else {
         const plantType = choose();
-        handleTodo(content, plantType);
+        const location = setLocation();
+
+        handleTodo(content, plantType, location);
+        setEmptyCell(
+          emptyCell.map((v, i) => (i === location ? "filled" : null))
+        );
 
         setContent("");
       }

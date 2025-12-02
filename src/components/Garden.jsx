@@ -6,7 +6,14 @@ function Garden({ gardenTodos }) {
       <div className="plants">
         {gardenTodos.map((v) => {
           return (
-            <div className="gardenItem" key={v.id}>
+            <div
+              className="gardenItem"
+              key={v.id}
+              style={{
+                gridRow: Math.floor(v.location / 8) + 1,
+                gridColumn: v.location % 8,
+              }}
+            >
               <img key={v.id} className="plantPic" src={v.plantType}></img>
               <div className="name">
                 <div className="text">{v.content}</div>

@@ -20,8 +20,9 @@ function reducer(todos, action) {
 function App() {
   const [todos, dispatch] = useReducer(reducer, []);
   const [gardenTodos, setGardenTodos] = useState([]);
+
   const idRef = useRef("1");
-  function handleTodo(content, plantType) {
+  function handleTodo(content, plantType, location) {
     dispatch({
       type: "CREATE",
       data: {
@@ -30,6 +31,7 @@ function App() {
         content: `${content}`,
         date: new Date().getTime(),
         plantType: `${plantType}`,
+        location: location,
       },
     });
   }
