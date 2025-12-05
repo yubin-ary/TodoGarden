@@ -15,6 +15,7 @@
 .list > input::placeholder {
   font-size: 14px;
   color: rgb(200, 200, 200);
+  font-family: "Nanum Gothic Coding";
 }
 .list > input:focus {
   outline: none;

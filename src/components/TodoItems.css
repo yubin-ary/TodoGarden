@@ -13,6 +13,7 @@
 }
 .todoItems .content {
   flex: 1;
+  font-size: 14px;
 }
 .todoItems .date {
   font-size: 14px;

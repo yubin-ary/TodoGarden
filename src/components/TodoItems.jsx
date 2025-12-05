@@ -10,8 +10,8 @@ function TodoItems({
   handleDone,
   handleDelete,
   handleSendToGarden,
-  emptyCell,
-  setEmptyCell,
+  count,
+  setCount,
 }) {
   const [done, setDone] = useState(false);
   const onChange = () => {
@@ -30,6 +30,8 @@ function TodoItems({
         id={id}
         done={done}
         handleSendToGarden={handleSendToGarden}
+        count={count}
+        setCount={setCount}
       ></PlantButton>
       <div className="date">{new Date(date).toLocaleDateString()}</div>
       <button onClick={onClick}>𝘅</button>

@@ -1,6 +1,11 @@
-const PlantButton = ({ id, done, handleSendToGarden }) => {
+const PlantButton = ({ id, done, handleSendToGarden, count, setCount }) => {
   const onClick = () => {
-    handleSendToGarden(id);
+    if (count < 16) {
+      handleSendToGarden(id);
+      setCount(count + 1);
+    } else {
+      console.log("꺼져");
+    }
   };
   if (done == true) {
     return (

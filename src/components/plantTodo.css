@@ -1,6 +1,7 @@
 .editor {
   display: flex;
   gap: 10px;
+  font-family: "Nanum Gothic Coding";
 }
 .editor input {
   flex: 1;
@@ -11,6 +12,7 @@
 .editor input::placeholder {
   color: rgb(200, 200, 200);
   font-size: 14px;
+  font-family: "Nanum Gothic Coding";
 }
 .editor button {
   width: 80px;
@@ -20,4 +22,5 @@
   background-color: #a9fa4d;
   cursor: pointer;
   font-size: 14px;
+  font-family: "Nanum Gothic Coding";
 }

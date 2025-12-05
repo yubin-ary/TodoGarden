@@ -1,8 +1,8 @@
 import TodoItems from "./TodoItems";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./plantTodo.css";
 
-function PlantTodo({ handleTodo }) {
+function PlantTodo({ handleTodo, isReset, setIsReSet }) {
   const [content, setContent] = useState("");
   const [isComposing, setIsComposing] = useState(false);
   const [emptyCell, setEmptyCell] = useState(Array(16).fill(null));
@@ -16,11 +16,16 @@ function PlantTodo({ handleTodo }) {
     const copyEmptyCell = emptyCell
       .map((v, i) => (v === null ? i : null))
       .filter((v) => v !== null);
-    console.log(copyEmptyCell);
+
     return parseInt(
       copyEmptyCell[Math.floor(Math.random() * copyEmptyCell.length)]
     );
   };
+  useEffect(() => {
+    if (isReset) {
+      setIsReSet(!isReset);
+    }
+  }, [isReset]);
 
   function onChange(e) {
     setContent(e.target.value);
@@ -34,7 +39,7 @@ function PlantTodo({ handleTodo }) {
     const location = setLocation();
 
     handleTodo(content, plantType, location);
-    setEmptyCell(emptyCell.map((v, i) => (i === location ? "filled" : null)));
+    setEmptyCell(emptyCell.map((v, i) => (i === location ? "filled" : v)));
 
     setContent("");
   }
@@ -48,9 +53,7 @@ function PlantTodo({ handleTodo }) {
         const location = setLocation();
 
         handleTodo(content, plantType, location);
-        setEmptyCell(
-          emptyCell.map((v, i) => (i === location ? "filled" : null))
-        );
+        setEmptyCell(emptyCell.map((v, i) => (i === location ? "filled" : v)));
 
         setContent("");
       }
