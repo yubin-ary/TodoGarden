@@ -2,25 +2,20 @@ import TodoItems from "./TodoItems";
 import { useState, useRef, useEffect } from "react";
 import "./plantTodo.css";
 
-function PlantTodo({ handleTodo, isReset, setIsReSet }) {
+function PlantTodo({
+  handleTodo,
+  isReset,
+  setIsReSet,
+  emptyCell,
+  setEmptyCell,
+  choose,
+  setLocation,
+}) {
   const [content, setContent] = useState("");
   const [isComposing, setIsComposing] = useState(false);
-  const [emptyCell, setEmptyCell] = useState(Array(16).fill(null));
+
   const inputRef = useRef();
 
-  const choose = () => {
-    let num = Math.ceil(Math.random() * 10);
-    return `src/asset/plants/plant${num}.png`;
-  };
-  const setLocation = () => {
-    const copyEmptyCell = emptyCell
-      .map((v, i) => (v === null ? i : null))
-      .filter((v) => v !== null);
-
-    return parseInt(
-      copyEmptyCell[Math.floor(Math.random() * copyEmptyCell.length)]
-    );
-  };
   useEffect(() => {
     if (isReset) {
       setIsReSet(!isReset);

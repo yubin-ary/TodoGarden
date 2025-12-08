@@ -8,6 +8,10 @@ function List({
   handleSendToGarden,
   count,
   setCount,
+  emptyCell,
+  setPlusLocation,
+  setEmptyCell,
+  handleLocation,
 }) {
   const [searchWord, setSearchWord] = useState("");
   const onChange = (e) => {
@@ -35,6 +39,10 @@ function List({
               handleSendToGarden={handleSendToGarden}
               count={count}
               setCount={setCount}
+              emptyCell={emptyCell}
+              setEmptyCell={setEmptyCell}
+              setPlusLocation={setPlusLocation}
+              handleLocation={handleLocation}
             ></TodoItems>
           );
         })}

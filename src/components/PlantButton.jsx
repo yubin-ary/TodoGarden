@@ -1,18 +1,33 @@
-const PlantButton = ({ id, done, handleSendToGarden, count, setCount }) => {
+const PlantButton = ({
+  id,
+  done,
+  location,
+  setPlusLocation,
+  handleLocation,
+}) => {
   const onClick = () => {
-    if (count < 16) {
-      handleSendToGarden(id);
-      setCount(count + 1);
+    const isEmptyLocation =
+      location === null ||
+      location === undefined ||
+      location === "" ||
+      Number.isNaN(Number(location));
+
+    if (isEmptyLocation) {
+      const newLoc = setPlusLocation();
+      handleLocation(id, newLoc);
     } else {
-      console.log("꺼져");
+      handleLocation(id, Number(location));
     }
   };
-  if (done == true) {
+
+  if (done === true) {
     return (
       <button className="pButton" onClick={onClick}>
         Plant
       </button>
     );
   }
+  return null;
 };
+
 export default PlantButton;
